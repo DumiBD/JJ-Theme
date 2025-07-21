@@ -1,0 +1,66 @@
+<?php 
+        if(get_sub_field('unique-id')){ $unique_id = get_sub_field('unique-id') ;}
+        else{ $unique_id = uniqid('Paragraph_') ;} ?>
+
+<?php 
+global $sing_menu;
+if($contant_tag = get_sub_field('contant_tag')){
+ $sing_menu[] = [ 
+    "name" => $contant_tag,
+    "id" => $unique_id,
+] ; }
+?>
+
+
+<section class="Paragraph" id="<?php echo $unique_id ; ?>">
+    
+        <div class="ParagraphBlocks <?php echo get_sub_field('position') ; ?> ">
+            
+            <div class="ParagraphBlock">
+                <?php if($title = get_sub_field('title')){  ?>
+                <div class="ParagraphBlockTitle">
+                <?php echo $title ; ?>
+                </div>
+                <?php } ?>
+                <?php if($text = get_sub_field('text')){  ?>
+                <div class="ParagraphBlockText">
+                <?php echo $text ; ?>
+                </div>
+                <?php } ?>
+            </div>
+            <?php if($img = get_sub_field('img')){ ?>
+            
+                
+                <div class="ParagraphBlockImg">
+                    <img src="<?php echo $img['url']; ?>" alt="<?php echo $img['alt']; ?>">
+                </div>
+               
+             <? } ?>
+        </div><?php if(get_sub_field('quote')['text']){
+    $quote = get_sub_field('quote')  ?>
+         <div class="ParagraphBlock">
+                
+                <div class="ParagraphBlockQuote"> 
+                    
+                    <div class="ParagraphBlockQuoteIcon">
+                        <svg width="144" height="145" viewBox="0 0 144 145" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="72" cy="72.7142" r="71.5" stroke="#EA3322"/>
+                        <path d="M76.1295 81.7142C75.3813 81.7142 75.0072 81.335 75.0072 80.5766V70.1959C75.0072 69.9115 75.1475 69.5797 75.4281 69.2005L85.3885 51.8519C85.6691 51.3778 85.9964 51.0934 86.3705 50.9986C86.7446 50.809 87.1655 50.7142 87.6331 50.7142H90.018C90.3921 50.7142 90.6727 50.8564 90.8597 51.1408C91.0468 51.4252 91.0468 51.7096 90.8597 51.9941L84.687 65.5032C84.4065 66.2616 84.313 66.8304 84.4065 67.2096C84.5 67.5889 84.8273 67.7785 85.3885 67.7785L87.6331 67.9207C88.2878 67.9207 88.7086 68.0629 88.8957 68.3473C89.0827 68.5369 89.1763 68.8213 89.1763 69.2005V80.4344C89.1763 81.2876 88.8022 81.7142 88.054 81.7142H76.1295ZM53.1223 81.7142C52.3741 81.7142 52 81.335 52 80.5766V70.1959C52 69.9115 52.1403 69.5797 52.4209 69.2005L62.3813 51.8519C62.6619 51.3778 62.9892 51.0934 63.3633 50.9986C63.7374 50.809 64.1583 50.7142 64.6259 50.7142H67.0108C67.3849 50.7142 67.6655 50.8564 67.8525 51.1408C68.0396 51.4252 68.0396 51.7096 67.8525 51.9941L61.6799 65.5032C61.3993 66.2616 61.3058 66.8304 61.3993 67.2096C61.4928 67.5889 61.8201 67.7785 62.3813 67.7785L64.7662 67.9207C65.3273 67.9207 65.7014 68.0629 65.8885 68.3473C66.0755 68.5369 66.1691 68.8213 66.1691 69.2005V80.4344C66.1691 81.2876 65.795 81.7142 65.0468 81.7142H53.1223Z" fill="#EA3322"/>
+                        </svg>
+                    </div>
+                    <div class="ParagraphBlockQuoteContent">
+                    
+                        <div class="ParagraphBlockQuoteContentText">
+                            <?php echo $quote['text']; ?>
+                        </div>
+                        <div class="ParagraphBlockQuoteContentAutor">
+                            <?php echo $quote['autor']; ?>
+                        </div>
+                    
+                    </div>
+             
+                </div>
+               </div> 
+        <?php } ?>
+    
+</section>
